@@ -4,6 +4,15 @@
 [![Coverage](https://codecov.io/gh/dials/dials/branch/main/graph/badge.svg)](https://codecov.io/gh/dials/dials)
 [![Slack](https://img.shields.io/badge/chat-Slack-green)](https://join.slack.com/t/dials-support/shared_invite/zt-21fvg5n53-SG~882mWRs189GSMuemPfg)
 
+# Apple Silicon Optimization Fork
+
+This is a fork of DIALS optimized for Apple Silicon (arm64) devices.
+It includes the following build optimizations automatically applied in `CMakeLists.txt` for arm64 macOS builds:
+*   `-O3`
+*   `-mcpu=native`
+*   `-flto`
+*   `-ffast-math`
+
 X-ray crystallography for structural biology has benefited greatly from a number of advances in recent years including high performance pixel array detectors, new beamlines capable of delivering micron and sub-micron focus and new light sources such as XFELs. The DIALS project is a collaborative endeavour to develop new diffraction integration software to meet the data analysis requirements presented by these recent advances. There are three end goals: to develop an extensible framework for the development of algorithms to analyse X-ray diffraction data; the implementation of algorithms within this framework and finally a set of user facing tools using these algorithms to allow integration of data from diffraction experiments on synchrotron and free electron sources.
 
 Website
