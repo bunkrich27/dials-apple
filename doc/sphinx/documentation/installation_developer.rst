@@ -51,3 +51,15 @@ Keeping a Development Environment current
 While you can always create a new development environment from scratch using the instructions above,
 it may be much preferable to update an existing environment.
 For that you may find the `guide for updating a development environment <https://github.com/dials/dials/wiki/Updating-a-development-environment>`_ in the DIALS Github repository wiki handy.
+
+Compiler Optimizations
+======================
+
+When building on Apple Silicon (arm64) platforms, the build system automatically applies the following optimization flags to improve performance:
+
+*   ``-O3``: Enable aggressive optimizations.
+*   ``-mcpu=native``: Tune code generation for the specific CPU type of the build machine.
+*   ``-flto``: Enable Link Time Optimization.
+*   ``-ffast-math``: Enable fast math operations (may violate IEEE 754 standard).
+
+These flags are detected and added in the main ``CMakeLists.txt``.

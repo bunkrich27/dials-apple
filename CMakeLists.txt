@@ -14,6 +14,11 @@ include(CheckCXXSymbolExists)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON) # Generate compile_commands.json
 set(CMAKE_CXX_STANDARD 14)
 
+if(APPLE AND CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
+    message(STATUS "Optimizing for Apple Silicon M4")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -mcpu=native -flto -ffast-math")
+endif()
+
 find_package(Python REQUIRED COMPONENTS Interpreter Development)
 find_package(CCTBX COMPONENTS cctbx scitbx ccp4io annlib REQUIRED)
 find_package(DXTBX REQUIRED)
